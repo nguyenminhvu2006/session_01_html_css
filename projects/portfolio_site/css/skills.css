@@ -1,0 +1,59 @@
+/* --- Cấu hình chung --- */
+.skills-section {
+  padding: 80px 0;
+  background-color: #f8f9fa; /* Màu nền xám nhạt cho khác biệt với About */
+}
+
+.skills-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 40px;
+}
+
+/* --- Layout Grid (Mặc định 1 cột cho Mobile) --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px; /* Khoảng cách giữa các thanh skill */
+}
+
+/* --- Responsive 2 cột cho Desktop --- */
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px; /* Khoảng cách dọc 40px, ngang 60px */
+  }
+}
+
+/* --- Định dạng thanh Progress Bar --- */
+.skill-header {
+  display: flex;
+  justify-content: space-between; /* Đẩy tên và % ra 2 đầu */
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #e2e8f0; /* Màu nền của thanh chưa chạy */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background-color: #004d00; /* Màu xanh đồng bộ với nút CTA của bạn */
+  border-radius: 8px;
+  
+  /* Chuẩn bị cho Animation */
+  max-width: 0; /* Bắt đầu với chiều rộng bằng 0 */
+  transition: max-width 1.5s ease-out; /* Hiệu ứng chạy mượt trong 1.5 giây */
+}
+
+/* Class này sẽ được JavaScript thêm vào khi scroll tới */
+.skill-progress.animate {
+  max-width: 100%; /* Mở rộng tối đa bằng với width="" đã set trong HTML */
+}
